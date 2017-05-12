@@ -1,0 +1,4 @@
+name: CPI Rest API
+type: module
+description: REST Custon API
+core: 8.x

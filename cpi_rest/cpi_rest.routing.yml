@@ -1,0 +1,34 @@
+cpi_rest.get:
+  path: 'rest/v1/node/{node}'
+  defaults: { _controller: '\Drupal\cpi_rest\Controller\CPIRestAPIController::get_event_data' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
+cpi_rest.user:
+  path: 'rest/v1/user/{user_id}'
+  defaults: { _controller: '\Drupal\cpi_rest\Controller\CPIRestAPIController::get_user_data' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
+cpi_rest.put:
+  path: 'my-api/put.json'
+  defaults: { _controller: '\Drupal\cpi_rest\Controller\CPIRestAPIController::put_example' }
+  methods:  [PUT]
+  requirements:
+    _access: 'TRUE'
+
+cpi_rest.post:
+  path: 'my-api/post.json'
+  defaults: { _controller: '\Drupal\cpi_rest\Controller\CPIRestAPIController::post_example' }
+  methods:  [POST]
+  requirements:
+    _access: 'TRUE'
+
+cpi_rest.delete:
+  path: 'my-api/delete.json'
+  defaults: { _controller: '\Drupal\cpi_rest\Controller\CPIRestAPIController::delete_example' }
+  methods:  [DELETE]
+  requirements:
+    _access: 'TRUE'

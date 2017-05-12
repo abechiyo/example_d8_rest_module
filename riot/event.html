@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Hello Riot.</title>
+    <style src="./css/style.css"></style>
+  </head>
+  <body>
+
+  <header></header>
+
+  <div class="container">
+    <event-title></event-title>
+    <content-body id="maincontent"></content-body>
+    <event-detail></event-detail>
+  </div>
+
+  <footer></footer>
+
+  <!-- include the tag -->
+  <script type="riot/tag" src="tag/common.tag"></script>
+  <script type="riot/tag" src="tag/event.tag"></script>
+  <!-- include riot.js -->
+  <script src="https://cdn.jsdelivr.net/riot/3.2/riot+compiler.min.js"></script>
+  <script src="js/getUrlParam.js"></script>
+  <!-- mount the tag -->
+<script>
+// URL取得
+var getVal = getUrlVars();
+// RESTサーバーからJSONデータ取得
+fetch( 'http://54.199.165.164/rest/v1/node/'+ getVal.node )
+
+  
+  .then( function ( data ) {
+      if(data.ok) {
+        return data.json();
+      }else{
+        console.log('Network response was not ok.');
+      }
+
+  } )
+  .then( function ( json ) {
+    if(json) {  
+
+        riot.mount("*", {json: json});
+    }else{
+
+        var content = document.getElementById('maincontent');
+        content.innerHTML = '<h1>不正なアクセスです</h1>';
+
+        riot.mount("header,footer");
+        console.log('Broken json data.');
+    }
+  } )
+</script>
+  </body>
+</html>
