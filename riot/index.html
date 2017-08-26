@@ -2,6 +2,11 @@
   <head>
     <title>イベント一覧</title>
     <style src="./css/style.css"></style>
+    <style>
+      nav p {
+        
+      }
+    </style>
   </head>
   <body>
 
@@ -19,7 +24,7 @@
   <script src="https://cdn.jsdelivr.net/riot/3.2/riot+compiler.min.js"></script>
   <!-- mount the tag -->
   <script>
-    fetch( 'http://54.199.165.164/rest/v1/list/event' )
+    fetch( 'http://chps1888.route-server.jp/v1/list/event' )
       .then( function ( data ) {      
         return data.json();
       } )
