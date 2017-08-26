@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FetchAPIを使いJSONデータを出力</title>
+</head>
+<body>
+
+<div id="json"></div>
+
+<script>
+var MYJSON = {};
+
+fetch('http://chps1888.route-server.jp/rest/v1/list/user' )
+  .then( function ( data ) {
+    return data.json();
+  } )
+  .then( function ( json ) {
+    MYJSON.JSONDATA = json;
+    kickStart();
+ } )
+
+function kickStart(){
+	// HTMLデータの生成
+	var htmlData = makeHtml();
+	// DOMの挿入
+	var domBlock = document.getElementById('json');
+	domBlock.innerHTML = htmlData;
+}
+
+function makeHtml(){
+
+	var retrunHtml = '';
+	for (var i = 0; i < MYJSON.JSONDATA.length; i++) {
+
+		retrunHtml += '名前：' + MYJSON.JSONDATA[i].field_name + '<br>';
+		retrunHtml += '役職：' + MYJSON.JSONDATA[i].field_position + '<br><hr>';
+
+	}
+
+	return retrunHtml;
+}
+
+</script>
+</body>
+</html>
