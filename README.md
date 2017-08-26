@@ -7,3 +7,6 @@ Riot.jsのサンプルコードです。
 <h3>● cpi_restディレクトリ</h3>
 Drupal8のカスタムREST APIのサンプルコードです。<br>
 「/DRUPAL8_DIR/modules/custom/」に設置するとモジュールとして動作します。
+
+<h3>● fetchディレクトリ</h3>
+Fetch APi + JavaScriptを使ったサンプル
